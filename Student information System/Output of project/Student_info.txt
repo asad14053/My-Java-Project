@@ -1,0 +1,5 @@
+ A,  X, Bangladesh, SSC , Male
+ c,  x, Japan , HSC BSc HSC BSc , Female
+ c,  m, China, HSC BSc , Female
+aad, ter, China, SSC HSC , Male
+ 
