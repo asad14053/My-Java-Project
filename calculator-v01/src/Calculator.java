@@ -1,4 +1,5 @@
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -10,27 +11,26 @@ public class Calculator implements ActionListener {
     String value = "", cv = "", oBtn;
     Double answer, v1, v2, v3;
     Double NumberConverted;
-
+    long a;
     Frame f;
     Panel p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18;
     private TextField tField;
     private Menu EditMenu;
     private MenuBar menuBar;
     private MenuItem fmi1, fmi2, fmi3;
-    private Button num0, num1, num2, num3, num4, num5, num6, num7, num8,
-            num9;
+    private Button num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
+
     private Button bAdd, bSub, bMul, bDiv, bPer, bSqrt, bFrac, bInt, bDot,
             bCE, equals, backspace, clear, bsin, basin, bcos, bacos, bpi, bsqr, bxn, btan, batan, bfac, bdeg, brad, blog, bln, bln1, bbin, boct, bhex,
             bqube, bsqube, babs, bexp;
 
     Calculator() {
-        f = new Frame("Scientific Calculator");
-
+        f = new Frame("SCIENTIFIC CALCULATOR");
         menuBar = new MenuBar();
         EditMenu = new Menu("Edit");
 
-        fmi1 = new MenuItem(" Copy   ");
-        fmi2 = new MenuItem(" Paste  ");
+        fmi1 = new MenuItem(" Copy  ");
+        fmi2 = new MenuItem(" Paste ");
         fmi3 = new MenuItem(" Quit    ");
 
         EditMenu.add(fmi1);
@@ -105,9 +105,9 @@ public class Calculator implements ActionListener {
         bsqube = new Button("X^(1/3)");
         babs = new Button("Abs");
         bexp = new Button("EXP");
+
     }
 
-    
     public void launchFrame() {
 
         tField.setText(" ");
@@ -153,15 +153,15 @@ public class Calculator implements ActionListener {
         /*    complete       */ p9.add(btan);
         /*    complete       */ p9.add(batan);
         /*    complete       */ p9.add(bpi);
-        p9.add(bfac);
+        /*    complete       */p9.add(bfac);
 
-        p10.add(bxn);
+        /*    complete       */p10.add(bxn);
         /*    complete       */ p10.add(bdeg);
         /*    complete       */ p10.add(brad);
 
-        p11.add(bbin);
-        p11.add(boct);
-        p11.add(bhex);
+        /*    complete       */p11.add(bbin);
+        /*    complete       */p11.add(boct);
+       /*    complete       */ p11.add(bhex);
 
         /*    complete       */ p11.add(bqube);
 
@@ -264,9 +264,6 @@ public class Calculator implements ActionListener {
 
     }
 
-    /*	25Oct2005:	Designed and programmed by jfernandez.ph	 */
- /*	13Nov2005:	Designed and programmed by jfernandez.ph 	*/
- /* |------------ START OF ACTION EVENTS ------------| */
     public void actionPerformed(ActionEvent a) {
 
         try {
@@ -313,8 +310,6 @@ public class Calculator implements ActionListener {
                 tField.setText(value);
             }
 
-            /*	25Oct2005:	Designed and programmed by jfernandez.ph 	*/
- /*	13Nov2005:	Designed and programmed by jfernandez.ph 	*/
             if (a.getSource() == bAdd) {
                 v1 = Double.parseDouble(tField.getText());
                 ctr = 0;
@@ -354,18 +349,49 @@ public class Calculator implements ActionListener {
                 answer = (v1 / 100);
                 tField.setText("" + answer);
             }
-            /*if (a.getSource() == bpi){
-					v1 = Double.parseDouble( tField.getText() );
-					ctr=0;
-					value="";
-					answer =3.141592654;
-					tField.setText("" +answer);
-     }*/
+            if (a.getSource() == bxn) {
 
+                //a = 0; 
+               
+                v1 = Double.parseDouble(tField.getText());
+                 tField.setText("");
+                o = '^';
+               
+                //  v3= Double.parseDouble(tField.getText());
+                value = "";
+            }
+            if (a.getSource() == bfac) {
 
- /*	25Oct2005:	Designed and programmed by jfernandez.ph	 */
- /*	13Nov2005:	Designed and programmed by jfernandez.ph 	*/
- /* |-- EQUALS ACTION --| */
+                //a = 0; 
+                tField.setText("");
+                value = "";
+               o='!';
+               
+                
+                value = "";
+            }
+            if (a.getSource() == bbin) {
+
+                //a = 0; 
+                tField.setText("");
+                value = "";
+               o='b';   
+            }
+            if (a.getSource() == bhex) {
+
+                //a = 0; 
+                tField.setText("");
+                value = "";
+               o='h';   
+            }
+            if (a.getSource() == boct) {
+
+                //a = 0; 
+                tField.setText("");
+                value = "";
+               o='o';   
+            }
+
             if (a.getSource() == equals) {
                 value = "";
                 v2 = Double.parseDouble(tField.getText());
@@ -405,12 +431,47 @@ public class Calculator implements ActionListener {
                     value = "";
                     v1 = null;
                     v2 = null;
-                } /* else if(o=='X^n'){
-						ctr=0;
-						answer = math.pow(v1 , v2);
-						tField.setText("" +answer);
-						value=""; v1=null; v2=null;
-					}*/ else {
+                } else if (o == '^') {
+                    ctr = 0;
+                    answer = 1.0;
+                    for (double i = 1; i <= v2; i++) {
+                        answer *= v1;
+                    }
+                    tField.setText("" + answer);
+                    value = "";
+                    v1 = null;
+                    v2 = null;
+                }
+                else if(o=='!')
+                {
+                     v1 = Double.parseDouble(tField.getText());
+                     answer=1.0;
+                for(int i=1;i<=v1;i++)
+                {
+                    answer*=i;
+                }
+                 tField.setText(""+answer);
+                }
+                else if(o=='b')
+                {
+                    int m;
+                    m = Integer.parseInt(tField.getText());
+                     String q=Integer.toBinaryString(m);
+                      tField.setText(""+q);
+                }
+                 else if(o=='h')
+                {
+                    int m;
+                    m = Integer.parseInt(tField.getText());
+                     String q=Integer.toHexString(m);
+                      tField.setText(""+q);
+                }
+                 else if(o=='o')
+                {
+                    int m;
+                    m = Integer.parseInt(tField.getText());
+                     String q=Integer.toOctalString(m);
+                      tField.setText(""+q);
                 }
             }
 
@@ -601,7 +662,7 @@ public class Calculator implements ActionListener {
         } catch (NullPointerException npe) {
         }
 
-    }	// END OF ACTION EVENTS
+    }
 
     private static class math {
 
@@ -609,8 +670,9 @@ public class Calculator implements ActionListener {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Calculator s = new Calculator();
         s.launchFrame();
     }
+
 }
