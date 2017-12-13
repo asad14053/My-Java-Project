@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Dec 13 15:35:07 BDT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0160-4f3a-44a6-000003188140 
+on database directory G:\java my practice\ContactList\ContactList\store\TestDB with class loader sun.misc.Launcher$AppClassLoader@55f96302 
+Loaded from file:/G:/java%20my%20practice/ContactList/ContactList/store/ContactList.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_151-b12
+user.dir=G:\java my practice\ContactList\ContactList\store
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
